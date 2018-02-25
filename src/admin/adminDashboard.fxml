@@ -1,8 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.adminController">
-
+<AnchorPane prefHeight="419.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.adminController">
+   <children>
+      <Pane layoutX="-6.0" prefHeight="500.0" prefWidth="39.0" style="-fx-background-color: #bf5f82;" />
+      <TabPane layoutX="33.0" layoutY="87.0" prefHeight="413.0" prefWidth="695.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Student" />
+          <Tab text="Help?">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="studenTable" layoutY="69.0" prefHeight="237.0" prefWidth="659.0">
+                           <columns>
+                              <TableColumn fx:id="idcolum" prefWidth="179.0" text="ID" />
+                              <TableColumn fx:id="firstcolum" prefWidth="104.0" text="firstcolum" />
+                              <TableColumn fx:id="lastnamecolum" prefWidth="143.0" text="lastName" />
+                              <TableColumn fx:id="emailcolum" minWidth="0.0" prefWidth="89.0" text="Email" />
+                              <TableColumn fx:id="dobcolum" prefWidth="121.0" text="Data of Birth" />
+                           </columns>
+                        </TableView>
+                        <TextField fx:id="searchTxt" layoutX="159.0" layoutY="29.0" prefHeight="25.0" prefWidth="341.0" />
+                        <Button fx:id="btnload" layoutX="583.0" layoutY="29.0" mnemonicParsing="false" onAction="#loadStudentData" style="-fx-background-color: #bf5f82;" text="Load Data" textFill="#fcfafa" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="36.0" layoutY="6.0" prefHeight="56.0" prefWidth="159.0" text="Welcome">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="-67.0" layoutY="-118.0" text="Plenase contact us from this No:075-7778888">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

@@ -28,7 +28,7 @@ public class Controller implements Initializable{
     private JFXPasswordField password;
 
     @FXML
-    private JFXButton btlogin;
+    private JFXButton btnlogin;
 
     @FXML
     private Label loginStatus;
@@ -36,43 +36,44 @@ public class Controller implements Initializable{
     @FXML
     private Label dbStatus;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        if (this.loginmodel.isDatabaseConnection()){
+        if (this.loginmodel.isDatabaseConnection()) {
             this.dbStatus.setText("Connected to DB.");
-
-        }else{
+        } else {
             this.dbStatus.setText("Not Connect to DB.");
         }
-    }//initialii
+    }//initialize
+
     @FXML
-    public  void  Login(ActionEvent event){
-        try{
-            if (this.loginmodel.isLogin(username.getText(),password.getText())){
+    public void Login(ActionEvent event){
+        try {
+            if (this.loginmodel.isLogin(username.getText(), password.getText())) {
                 Stage stage = (Stage) this.btnlogin.getScene().getWindow();
                 stage.close();
-                adminDashborad();
+                adminDashboard();
 
-            }else {
-                loginStatus.setText("Your username or password is inva");
+            } else {
+                loginStatus.setText("Your username or password is invalid.");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-    }//isLonig
 
-    private void adminDashborad() {
-        try{
+    }//Login
+
+    private void adminDashboard() {
+        try {
             Stage adminStage = new Stage();
             FXMLLoader adminLoader = new FXMLLoader();
-            Pane adminRoot = (Pane) adminLoader.load(getClass().getResource("/admin/adminDashboard.fxml").openStream());
-            adminController admincontroller = adminLoader.getController();
+            Pane adminRoot = (Pane) adminLoader.load(
+                    getClass().getResource("/admin/adminDashboard.fxml").openStream());
+            adminController adminController = adminLoader.getController();
             Scene scene = new Scene(adminRoot);
             adminStage.setScene(scene);
-            adminStage.setTitle("Admin Dashborad");
+            adminStage.setTitle("Admin Dashboard");
             adminStage.setResizable(false);
             adminStage.show();
         } catch (IOException e) {
@@ -80,5 +81,7 @@ public class Controller implements Initializable{
         }
 
 
-    }//adminDashborad
+    }//adminDashboard
+
+
 }//class
